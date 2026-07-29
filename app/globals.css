@@ -14,6 +14,113 @@
   --font-sans: "Avenir Next", Avenir, "Segoe UI", Arial, sans-serif;
 }
 
+.empty-state {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  color: var(--muted);
+  padding: 50px;
+  text-align: center;
+}
+
+.portrait {
+  background-position: center;
+  background-size: cover;
+}
+
+.tone-0 { background-color: #d7a6a8; }
+.tone-1 { background-color: #a2bcae; }
+.tone-2 { background-color: #afa3bf; }
+.tone-3 { background-color: #c9ac82; }
+
+.request-button {
+  display: block;
+  text-align: center;
+}
+
+.admin-login {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin: 15vh auto;
+  max-width: 620px;
+  padding: 40px;
+}
+
+.admin-login h1,
+.admin-editor h1 {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  margin: 15px 0;
+}
+
+.admin-page {
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.admin-page-header {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 5vw;
+}
+
+.admin-page-header > a {
+  color: var(--ink);
+}
+
+.admin-editor,
+.admin-catalog {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 60px 30px 15px;
+}
+
+.admin-editor form {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 35px;
+  padding: 30px;
+}
+
+.admin-editor label {
+  color: var(--muted);
+  display: grid;
+  font-size: .82rem;
+  gap: 8px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.admin-editor input,
+.admin-editor select,
+.admin-editor textarea {
+  background: #faf8f4;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  font: inherit;
+  padding: 13px;
+}
+
+.admin-editor textarea { min-height: 110px; resize: vertical; }
+.admin-editor .wide { grid-column: 1 / -1; }
+.admin-actions { align-items: center; display: flex; gap: 15px; }
+.admin-actions button { border: 0; cursor: pointer; }
+
+@media (max-width: 650px) {
+  .admin-editor form { grid-template-columns: 1fr; padding: 20px; }
+  .admin-editor .wide { grid-column: auto; }
+  .admin-actions { align-items: stretch; flex-direction: column; }
+}
+
 * {
   box-sizing: border-box;
 }
