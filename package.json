@@ -10,7 +10,7 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "postbuild": "node -e \"const fs=require('fs'); fs.rmSync('dist/client/wrangler.json', {force:true}); fs.rmSync('dist/server/wrangler.json', {force:true}); fs.rmSync('.wrangler', {force:true, recursive:true}); fs.cpSync('dist/server', 'dist/client/server', { recursive: true, force: true }); fs.cpSync('lib', 'dist/client/lib', { recursive: true, force: true }); fs.copyFileSync('pages-worker.ts', 'dist/client/_worker.ts');\"",
-    "deploy": "npm run build && wrangler pages deploy ./dist/client --project-name=iam-dani-catalogo --commit-dirty=true"
+    "deploy": "npm run build && wrangler pages deploy ./dist/client --project-name=iam-dani-catalogo --commit-dirty=true --functions=./dist/client"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
