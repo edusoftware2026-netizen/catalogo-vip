@@ -1,3 +1,4 @@
+"use client";
 import { getAdminSession } from "@/lib/admin-auth";
 import AdminPanel from "./panel";
 

@@ -1,20 +1,20 @@
 {
-  "name": "site-creator-vinext-starter",
+  "name": "iam-dani-catalogo",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
-    "build": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
-    "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "drizzle-kit generate"
+    "dev": "vinext dev",
+    "build": "vinext build",
+    "postbuild": "node -e \"const fs=require('fs'); fs.rmSync('dist/client/wrangler.json', {force:true}); fs.rmSync('dist/server/wrangler.json', {force:true}); fs.rmSync('.wrangler', {force:true, recursive:true}); fs.cpSync('dist/server', 'dist/client/server', { recursive: true, force: true }); fs.cpSync('lib', 'dist/client/lib', { recursive: true, force: true }); fs.copyFileSync('pages-worker.ts', 'dist/client/_worker.ts');\"",
+    "deploy": "npm run build && wrangler pages deploy ./dist/client --project-name=iam-dani-catalogo --commit-dirty=true"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
+    "gemini-ai": "^2.2.1",
     "next": "16.2.6",
     "react": "19.2.6",
     "react-dom": "19.2.6"
@@ -36,6 +36,5 @@
     "vinext": "0.0.50",
     "vite": "8.0.13",
     "wrangler": "4.92.0"
-  },
-  "type": "module"
+  }
 }

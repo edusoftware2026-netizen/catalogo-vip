@@ -1,4 +1,4 @@
-import { env } from "cloudflare:workers";
+let _env: CatalogRuntime | undefined;
 
 export type CatalogRuntime = {
   ADMIN_SIGNING_SECRET?: string;
@@ -8,12 +8,19 @@ export type CatalogRuntime = {
   BOT_USERNAME?: string;
   CHANNEL_ID?: string;
   DB: D1Database;
-  MEDIA: R2Bucket;
+  MEDIA?: R2Bucket;
   TELEGRAM_WEBHOOK_SECRET?: string;
 };
 
+export function setRuntimeEnv(env: CatalogRuntime) {
+  _env = env;
+}
+
 export function runtime(): CatalogRuntime {
-  return env;
+  if (!_env) {
+    throw new Error("Runtime environment not set. Ensure setRuntimeEnv is called.");
+  }
+  return _env;
 }
 
 export function requiredSecret(

@@ -5,7 +5,11 @@ export async function GET(
   context: { params: Promise<{ key: string }> },
 ): Promise<Response> {
   const { key } = await context.params;
-  const object = await runtime().MEDIA.get(key);
+  const media = runtime().MEDIA;
+  if (!media) {
+    return new Response("Almacenamiento de imágenes no configurado", { status: 404 });
+  }
+  const object = await media.get(key);
   if (!object) return new Response("Imagen no encontrada", { status: 404 });
   const headers = new Headers();
   object.writeHttpMetadata(headers);
