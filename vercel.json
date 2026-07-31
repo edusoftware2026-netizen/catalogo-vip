@@ -1,13 +1,8 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": ".",
+  "outputDirectory": "dist/client",
   "installCommand": "npm install",
-  "framework": "nextjs",
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "destination": "/dist/client/:path*"
-    }
-  ]
+  "framework": null
 }
+
 
