@@ -1,0 +1,5 @@
+# Ignore all next.js artifacts
+.next
+.env
+.env.local
+.env.*.local
