@@ -1,9 +1,13 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/client",
-  "env": {
-    "BOT_USERNAME": "CatalogoVIPSCZBot",
-    "ADMIN_TELEGRAM_IDS": "100671",
-    "CHANNEL_ID": "-1004356066811"
-  }
+  "outputDirectory": ".",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "destination": "/dist/client/:path*"
+    }
+  ]
 }
+
