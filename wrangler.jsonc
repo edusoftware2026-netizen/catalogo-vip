@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "iam-dani-catalogo",
+  "name": "catalogo-vip",
   "pages_build_output_dir": "./dist/client",
   "compatibility_date": "2026-07-29",
   "compatibility_flags": [
@@ -9,7 +9,7 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "iam-dani-catalogo-db",
+      "database_name": "catalogo-vip-db",
       "database_id": "36b1a72d-9a32-496b-8acd-546e0abe182d"
     }
   ]
