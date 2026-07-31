@@ -9,9 +9,9 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
-    "postbuild": "node -e \"const fs=require('fs'); fs.rmSync('dist/client/wrangler.json', {force:true}); fs.rmSync('dist/server/wrangler.json', {force:true}); fs.rmSync('.wrangler', {force:true, recursive:true}); fs.cpSync('dist/server', 'dist/client/server', { recursive: true, force: true }); fs.cpSync('lib', 'dist/client/lib', { recursive: true, force: true }); fs.copyFileSync('pages-worker.ts', 'dist/client/_worker.ts');\"",
+    "postbuild": "node -e \"const fs=require('fs'); fs.rmSync('dist/client/wrangler.json', {force:true}); fs.rmSync('dist/server/wrangler.json', {force:true}); fs.rmSync('.wrangler', {force:true, recursive:true}); fs.cpSync('dist/server', 'dist/client/server', { recursive: true, force: true }); fs.cpSync('lib', 'dist/client/lib', { recursive: true, force: true }); fs.mkdirSync('dist/client/functions', {recursive: true}); fs.copyFileSync('pages-worker.ts', 'dist/client/functions/_middleware.ts');\"",
     "deploy-cf-pages": "wrangler pages deploy ./dist/client --project-name=catalogo-vip --commit-dirty=true",
-    "deploy": "npm run build && npm run deploy-cf-pages"
+    "deploy": "npm run build && wrangler pages deploy ./dist/client --project-name=catalogo-vip"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
