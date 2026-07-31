@@ -6,3 +6,9 @@
   BOT_USERNAME = "CatalogoVIPSCZBot"
   ADMIN_TELEGRAM_IDS = "100671"
   CHANNEL_ID = "-1004356066811"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+  [plugins.inputs]
+    disabled = true
+
