@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
-    "postbuild": "node -e \"const fs=require('fs'); fs.rmSync('dist/client/wrangler.json', {force:true}); fs.rmSync('dist/server/wrangler.json', {force:true}); fs.rmSync('.wrangler', {force:true, recursive:true}); fs.cpSync('dist/server', 'dist/client/server', { recursive: true, force: true }); fs.cpSync('lib', 'dist/client/lib', { recursive: true, force: true }); fs.mkdirSync('dist/client/functions', {recursive: true}); fs.copyFileSync('pages-worker.ts', 'dist/client/functions/_middleware.ts'); fs.mkdirSync('dist/client/.next', {recursive: true}); fs.writeFileSync('dist/client/.next/routes-manifest.json', JSON.stringify({version: 3, pages404: true, basePath: '', redirects: [], rewrites: {}, dynamicRoutes: [], staticRoutes: []}, null, 2));\"",
+    "postbuild": "node -e \"const fs=require('fs'); fs.rmSync('dist/client/wrangler.json', {force:true}); fs.rmSync('dist/server/wrangler.json', {force:true}); fs.rmSync('.wrangler', {force:true, recursive:true}); fs.cpSync('dist/server', 'dist/client/server', { recursive: true, force: true }); fs.cpSync('lib', 'dist/client/lib', { recursive: true, force: true }); fs.mkdirSync('dist/client/functions', {recursive: true}); fs.copyFileSync('pages-worker.ts', 'dist/client/functions/_middleware.ts'); fs.writeFileSync('dist/client/routes-manifest.json', JSON.stringify({version: 3, pages404: true, basePath: '', redirects: [], rewrites: {}, dynamicRoutes: [], staticRoutes: []}, null, 2));\"",
     "deploy-cf-pages": "wrangler pages deploy ./dist/client --project-name=catalogo-vip --commit-dirty=true",
     "deploy": "npm run build && wrangler pages deploy ./dist/client --project-name=catalogo-vip"
   },
